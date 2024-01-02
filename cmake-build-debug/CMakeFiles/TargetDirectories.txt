@@ -1,3 +1,0 @@
-C:/Users/Alper/Desktop/sonartìson/cmake-build-debug/CMakeFiles/sonartson.dir
-C:/Users/Alper/Desktop/sonartìson/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Alper/Desktop/sonartìson/cmake-build-debug/CMakeFiles/rebuild_cache.dir

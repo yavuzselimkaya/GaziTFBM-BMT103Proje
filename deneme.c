@@ -33,6 +33,7 @@ void quizBaslat(FILE *soruDosya, FILE *skorDosya) {
 
         fgets(soru, sizeof(soru), soruDosya);
         dogruCevap = fgetc(soruDosya);
+        fgetc(soruDosya); //fgets bi bos karakter falan atiyor o yuzden sorulari duzgun okumuyor o karakteri yok etmek icin boyle bisey yaptım
         kulaniciCevap = soruSor(soru);
         skor = cevapKontrol(kulaniciCevap, dogruCevap, skor);
     }

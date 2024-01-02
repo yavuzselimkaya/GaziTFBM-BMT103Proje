@@ -18,6 +18,7 @@ int main() {
     fgets(enisim,sizeof(enisim),enskorDosya);
     fgetc(enskorDosya);
     printf("\n-- Quiz Proje Uygulamasi --\n");
+    printf("\nCevaplarinizi buyuk harf olarak giriniz.\n");
     printf("\nEn Yuksek Skor %s Kullanicisinin Skoru:%d\n\n",enisim,enYuksekskor);
     printf("Isminizi giriniz: \n");
     scanf(" %s", &userisim);

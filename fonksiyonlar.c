@@ -30,29 +30,27 @@ void quizBaslat(FILE *soruDosya, FILE *skorDosya) {
     char soru[SORU_MAKS_UZUNLUK], dogruCevap, kulaniciCevap;
     int skor = 0;
     for (int i = 1; i <= SORU_SAYISI; ++i) {
-
-        //soruyu çek************************
-        //cevabı çek****************************
+        fscanf(soruDosya,"%s %c",soru,&dogruCevap); //Soru dosyasından soruyu ve cevabını okur
         kulaniciCevap = soruSor(soru);
         skor = cevapKontrol(kulaniciCevap, dogruCevap, skor);
-
-
     }
-
-
-
     printf("Skorunuz: %d\n", skor);
-    //DOSYAYA SKOR YAZDIRMA//////////////////////*********************
+    fprintf(skorDosya,"Oyuncu Skoru: %d\n",skor); 
 }
+
 
 int main() {
-            printf("\n-- Quiz Proje Uygulamasi --\n");
-            printf("\n ! Quizde yapilan en yuksek skor %d'dir ! \n",enYuksekSkor);
-            //Beyler Burda Skor dosyasında bi highscore değişkeni oluşturup onu yazdıralım.
-            //DOSYALARI AÇ********************
-            quizBaslat(soruDosya, skorDosya);
-            //*******DOSYA KAPA*********
-
+    FILE *soruDosya = fopen("sorular.txt","r"); //Soru dosyasını okuma modunda olucak sekilde acar
+    FILE *skorDosya = fopen("skor.txt","a"); //Skor dosyasını append modunda olucak sekilde acar
+    if (soruDosya == NULL || skorDosya == NULL) {
+        printf("Hata: Dosya acilirken bir sorun olustu.\n");
+        return 1; //Error verip cikar
+    }
+    printf("\n-- Quiz Proje Uygulamasi --\n");
+    printf("\n ! Quizde yapilan en yuksek skor %d'dir ! \n",enYuksekSkor);
+    //Beyler Burda Skor dosyasında bi highscore değişkeni oluşturup onu yazdıralım.
+    quizBaslat(soruDosya, skorDosya);
+    fclose(soruDosya); //Soru dosyasını kapatır
+    fclose(skorDosya); //Skor dosyasını kapatır
     return 0;
 }
-

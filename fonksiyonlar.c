@@ -18,7 +18,8 @@ int cevapKontrol(char kullaniciCevap, char dogruCevap, int skor) {
     if (kullaniciCevap == dogruCevap) {
         printf("Dogru!\n");
         return skor + 1;
-    } else {
+    }
+    else {
         printf("Yanlıs. Dogru Cevap: %c.\n", dogruCevap);
         return skor;
     }
@@ -35,11 +36,12 @@ void quizBaslat(FILE *soruDosya, FILE *skorDosya) {
         kulaniciCevap = soruSor(soru);
         skor = cevapKontrol(kulaniciCevap, dogruCevap, skor);
 
+
     }
-    
 
 
-    printf("Your final score is: %d\n", skor);
+
+    printf("Skorunuz: %d\n", skor);
     //DOSYAYA SKOR YAZDIRMA//////////////////////*********************
 }
 
@@ -47,8 +49,12 @@ int main() {
             printf("\n-- Quiz Proje Uygulamasi --\n");
             printf("\n ! Quizde yapilan en yuksek skor %d'dir ! \n",enYuksekSkor);
             //Beyler Burda Skor dosyasında bi highscore değişkeni oluşturup onu yazdıralım.
+            //DOSYALARI AÇ********************
+            quizBaslat(soruDosya, skorDosya);
+            //*******DOSYA KAPA*********
 
-
+    return 0;
+}
 
 
 

@@ -4,7 +4,7 @@
 #define SORU_SAYISI 10
 #define SORU_MAKS_UZUNLUK 256
 
-
+char userisim[21];
 char soruSor(char *soru) {
     char cevap;
     printf("%s\n", soru);
@@ -16,29 +16,28 @@ char soruSor(char *soru) {
 
 int cevapKontrol(char kullaniciCevap, char dogruCevap, int skor) {
     if (kullaniciCevap == dogruCevap) {
-        printf("Dogru!\n");
+        printf("Dogru!\n\n");
         return skor + 1;
     }
     else {
-        printf("Yanlis. Dogru Cevap: %c.\n", dogruCevap);
+        printf("Yanlis. Dogru Cevap: %c.\n\n", dogruCevap);
         return skor;
     }
 }
 
 
 void quizBaslat(FILE *soruDosya, FILE *skorDosya) {
-    char soru[SORU_MAKS_UZUNLUK], dogruCevap, kulaniciCevap;
+    char soru[SORU_MAKS_UZUNLUK], dogruCevap, kullaniciCevap;
     int skor = 0;
     for (int i = 1; i <= SORU_SAYISI; ++i) {
-
         fgets(soru, sizeof(soru), soruDosya);
         dogruCevap = fgetc(soruDosya);
-        fgetc(soruDosya); //fgets bi bos karakter falan atiyor o yuzden sorulari duzgun okumuyor o karakteri yok etmek icin boyle bisey yaptım
-        kulaniciCevap = soruSor(soru);
-        skor = cevapKontrol(kulaniciCevap, dogruCevap, skor);
+        fgetc(soruDosya);
+        kullaniciCevap = soruSor(soru);
+        skor = cevapKontrol(kullaniciCevap, dogruCevap, skor);
     }
     printf("Skorunuz: %d\n", skor);
-    fprintf(skorDosya,"Oyuncu Skoru: %d\n",skor);
+    fprintf(skorDosya,"%s Kullanicisinin Skoru: %d\n",userisim,skor);
 }
 
 
@@ -50,6 +49,8 @@ int main() {
         return 1; //Error verip cikar
     }
     printf("\n-- Quiz Proje Uygulamasi --\n");
+    printf("Isminizi giriniz: \n");
+    scanf(" %s",&userisim);
     //printf("\n ! Quizde yapilan en yuksek skor %d'dir ! \n",enYuksekSkor);
     //Beyler Burda Skor dosyasında bi highscore değişkeni oluşturup onu yazdıralım.
     quizBaslat(soruDosya, skorDosya);

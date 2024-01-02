@@ -1,1 +1,1 @@
-Bu Gazi Üniversitesi Teknoloji Fakültesi Bilgisayar Mühendisliği Programı Algoritma ve Programlama'ya Giriş(BMT-103) Dersinin Online Quiz Programı Projesi
+Bu program sorular.txt dosyasından soruları ve dogru cevaplarını okur, enskor.txt dosyasından en yuksek skoru okur, kullanıcıdan aldıgı cevaplarla skor hesaplar, bu skoru skor.txt dosyasının sonuna ekler ve eğer kullanıcı yeni bir en yuksek skor elde ettiyse bunu enskor.txt ye yazar.

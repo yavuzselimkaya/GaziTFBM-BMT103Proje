@@ -30,9 +30,9 @@ void quizBaslat(FILE *soruDosya, FILE *skorDosya) {
     char soru[SORU_MAKS_UZUNLUK], dogruCevap, kulaniciCevap;
     int skor = 0;
     for (int i = 1; i <= SORU_SAYISI; ++i) {
-        //DOSYA BAGLAMA****************************
-        //soruyu baglama************************
-        //cevabı okuma****************************
+
+        //soruyu çek************************
+        //cevabı çek****************************
         kulaniciCevap = soruSor(soru);
         skor = cevapKontrol(kulaniciCevap, dogruCevap, skor);
 
@@ -56,18 +56,3 @@ int main() {
     return 0;
 }
 
-
-
-
-
-
-
-
-            //DOSYALARI AÇ********************
-
-
-    soruSor(soruDosya, skorDosya);
-    //*******DOSYA KAPA*********
-
-    return 0;
-}

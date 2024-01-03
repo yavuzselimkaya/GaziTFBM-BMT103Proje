@@ -1,7 +1,8 @@
 
-#include <stdio.h>
-#include "quiz.h"
+#include <stdio.h> //Standart C Kütüphanesi
+#include "quiz.h" //Fonksiyonları kendi dosyalarından çekmek için oluşturduğumuz Header'ı tanımladığımız satır
 
+//Kullanıcının cevabını kontrol edip ona gore skoru hesaplayan fonksiyon
 int cevapKontrol(char kullaniciCevap, char dogruCevap, int skor) {
     if (kullaniciCevap == dogruCevap) {
         printf("Dogru!\n-------------------------------------------------------------\n");

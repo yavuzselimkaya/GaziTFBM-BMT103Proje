@@ -1,4 +1,4 @@
-
+//Fonksiyonları dışardan çekebilmek için kullandığımız dosya
 #ifndef QUIZ_H
 #define QUIZ_H
 
